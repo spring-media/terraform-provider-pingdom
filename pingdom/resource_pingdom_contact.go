@@ -184,7 +184,7 @@ func updateResourceFromContactResponse(d *schema.ResourceData, c *pingdom.Contac
 }
 
 func resourcePingdomContactCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	client := meta.(*Clients).Pingdom
+	client := meta.(*pingdom.Client)
 
 	contact, err := contactForResource(d)
 	if err != nil {
@@ -202,7 +202,7 @@ func resourcePingdomContactCreate(ctx context.Context, d *schema.ResourceData, m
 }
 
 func resourcePingdomContactRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	client := meta.(*Clients).Pingdom
+	client := meta.(*pingdom.Client)
 
 	id, err := strconv.Atoi(d.Id())
 	if err != nil {
@@ -224,7 +224,7 @@ func resourcePingdomContactRead(ctx context.Context, d *schema.ResourceData, met
 }
 
 func resourcePingdomContactUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	client := meta.(*Clients).Pingdom
+	client := meta.(*pingdom.Client)
 
 	id, err := strconv.Atoi(d.Id())
 	if err != nil {
@@ -245,7 +245,7 @@ func resourcePingdomContactUpdate(ctx context.Context, d *schema.ResourceData, m
 }
 
 func resourcePingdomContactDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	client := meta.(*Clients).Pingdom
+	client := meta.(*pingdom.Client)
 
 	id, err := strconv.Atoi(d.Id())
 	if err != nil {
