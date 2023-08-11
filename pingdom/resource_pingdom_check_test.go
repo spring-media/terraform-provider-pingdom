@@ -9,6 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+	"github.com/nordcloud/go-pingdom/pingdom"
 )
 
 func TestAccResourcePingdomCheck_http(t *testing.T) {
@@ -202,7 +203,7 @@ func TestAccResourcePingdomCheck_dns(t *testing.T) {
 }
 
 func testAccCheckPingdomCheckDestroy(s *terraform.State) error {
-	client := testAccProvider.Meta().(*Clients).Pingdom
+	client := testAccProvider.Meta().(*pingdom.Client)
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "pingdom_check" {

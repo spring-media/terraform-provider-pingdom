@@ -9,6 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+	"github.com/nordcloud/go-pingdom/pingdom"
 )
 
 func TestAccResourcePingdomTeam_basic(t *testing.T) {
@@ -53,7 +54,7 @@ func TestAccResourcePingdomTeam_basic(t *testing.T) {
 }
 
 func testAccCheckPingdomTeamDestroy(s *terraform.State) error {
-	client := testAccProvider.Meta().(*Clients).Pingdom
+	client := testAccProvider.Meta().(*pingdom.Client)
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "pingdom_team" {
