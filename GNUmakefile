@@ -17,7 +17,7 @@ lint:
 	golangci-lint run
 
 test:
-	go test -v -cover ./...
+	TF_ACC=1 go test -v -cover ./...
 
 clean:
 	rm -rf build/
