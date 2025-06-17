@@ -122,7 +122,7 @@ func getNotificationMethods(d *schema.ResourceData) (pingdom.NotificationTargets
 	}
 
 	if !hasHighSeverity || !hasLowSeverity {
-		return base, fmt.Errorf("You must provide both a high and low severity notification method")
+		return base, fmt.Errorf("you must provide both a high and low severity notification method")
 	}
 
 	return base, nil
