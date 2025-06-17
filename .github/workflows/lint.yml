@@ -1,7 +1,8 @@
 name: Go Linter
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - '**'
 jobs:
   golangci:
     name: Run linter
