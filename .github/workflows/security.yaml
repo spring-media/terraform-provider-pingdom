@@ -18,8 +18,6 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-python@v3
       - uses: snyk/actions/setup@master
-      - run: pip install -r requirements.txt
-        working-directory: tests/docs
       - run: |
           snyk test --all-projects --severity-threshold=medium
           snyk code test --all-projects --severity-threshold=medium
