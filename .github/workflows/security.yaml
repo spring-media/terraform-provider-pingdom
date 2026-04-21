@@ -19,8 +19,8 @@ jobs:
       - uses: actions/setup-python@v6
       - uses: snyk/actions/setup@master
       - run: |
-          snyk test --all-projects --severity-threshold=medium
-          snyk code test --all-projects --severity-threshold=medium
+          snyk test --all-projects --severity-threshold=medium --fail-on=upgradable
+          snyk code test --all-projects --severity-threshold=medium --fail-on=upgradable
 
   teams-notification:
     if: ${{ failure() }}
